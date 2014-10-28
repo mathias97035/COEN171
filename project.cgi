@@ -55,7 +55,7 @@ try:
 	# remove courses satisfied from starting schedule
 
 	# reposition and add more classes
-
+	#Matt Was here
 	# output response json
 	print json.dumps({ 
 		"error" : False , 
