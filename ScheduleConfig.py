@@ -230,7 +230,7 @@ REQUIRED_CLASSES = {
                 "classInfo" : {
                         "subject" : "ENGR",
                         "course" : "1",
-                        "name" : "asdasdasda"
+                        "name" : "asdasdasda",
                         "hasLab" : False
                     },
                 "quartersOffered" : [
