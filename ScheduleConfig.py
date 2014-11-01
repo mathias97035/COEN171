@@ -35,9 +35,57 @@ STARTING_SCHEDULES = {
             }
         ],
         "winter" : [
+        {
+                "subject" : "COEN",
+                "course" : "11",
+                "title" : "Advance Programming",
+                "hasLab" : False
+            },
+            {
+                "subject" : "University Core",
+                "course" : None,
+                "title" :"Critial Thinking and Writing II",
+                "hasLab" : False
+            } ,
+            {
+                "subject" : "MATH",
+                "course" : "12",
+                "title" :"Calculus II",
+                "hasLab" : False
+            },
+            {
+                "subject" : "PHYS",
+                "course" : "31",
+                "title" : "Physics I",
+                "hasLab" : True
+            } 
 
         ],
         "spring" : [
+        {
+                "subject" : "COEN",
+                "course" : "12",
+                "title" : "Data Structures",
+                "hasLab" : True
+            },
+            {
+                "subject" : "MATH",
+                "course" : "19",
+                "title" :"Discrete Math",
+                "hasLab" : False
+            } ,
+            {
+                "subject" : "PHYS",
+                "course" : "32",
+                "title" :"Physics II",
+                "hasLab" : True
+            },
+            {
+                "subject" : "MATH",
+                "course" : "13",
+                "title" : "Calculus III",
+                "hasLab" : False
+            } 
 
         ]
     }
