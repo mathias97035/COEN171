@@ -120,7 +120,7 @@ AP_SCORE_CONFIG = {
                 "fall" : [
                     {
                         "subject" : "MATH",
-                        "course" : "12"
+                        "course" : "12",
                         "title" :"Calculus II",
                         "hasLab" : False
                     }
@@ -128,7 +128,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "MATH",
-                        "course" : "13"
+                        "course" : "13",
                         "title" :"Calculus III",
                         "hasLab" : False
                     }
@@ -136,7 +136,7 @@ AP_SCORE_CONFIG = {
                 "spring" : [
                     {
                         "subject" : "MATH",
-                        "course" : "14"
+                        "course" : "14",
                         "title" :"Calculus IV",
                         "hasLab" : False
                     }
@@ -168,7 +168,7 @@ AP_SCORE_CONFIG = {
                 "fall" : [
                     {
                         "subject" : "MATH",
-                        "course" : "12"
+                        "course" : "12",
                         "title" :"Calculus II",
                         "hasLab" : False
                     }
@@ -176,7 +176,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "MATH",
-                        "course" : "13"
+                        "course" : "13",
                         "title" :"Calculus III",
                         "hasLab" : False
                     }
@@ -184,7 +184,7 @@ AP_SCORE_CONFIG = {
                 "spring" : [
                     {
                         "subject" : "MATH",
-                        "course" : "14"
+                        "course" : "14",
                         "title" :"Calculus IV",
                         "hasLab" : False
                     }
@@ -219,7 +219,7 @@ AP_SCORE_CONFIG = {
                 "fall" : [
                     {
                         "subject" : "MATH",
-                        "course" : "12"
+                        "course" : "12",
                         "title" :"Calculus II",
                         "hasLab" : False
                     }
@@ -227,7 +227,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "MATH",
-                        "course" : "13"
+                        "course" : "13",
                         "title" :"Calculus III",
                         "hasLab" : False
                     }
@@ -235,7 +235,7 @@ AP_SCORE_CONFIG = {
                 "spring" : [
                     {
                         "subject" : "MATH",
-                        "course" : "14"
+                        "course" : "14",
                         "title" :"Calculus IV",
                         "hasLab" : False
                     }
@@ -267,7 +267,7 @@ AP_SCORE_CONFIG = {
                 "fall" : [
                     {
                         "subject" : "MATH",
-                        "course" : "13"
+                        "course" : "13",
                         "title" :"Calculus III",
                         "hasLab" : False
                     }
@@ -275,7 +275,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "MATH",
-                        "course" : "14"
+                        "course" : "14",
                         "title" :"Calculus IV",
                         "hasLab" : False
                     }
@@ -310,7 +310,7 @@ AP_SCORE_CONFIG = {
                  "fall" : [
                     {
                         "subject" : "MATH",
-                        "course" : "13"
+                        "course" : "13",
                         "title" :"Calculus III",
                         "hasLab" : False
                     }
@@ -318,7 +318,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "MATH",
-                        "course" : "14"
+                        "course" : "14",
                         "title" :"Calculus IV",
                         "hasLab" : False
                     }
@@ -336,7 +336,7 @@ AP_SCORE_CONFIG = {
                 "winter" :[
                     {
                         "subject" : "PHYS",
-                        "course" : "31"
+                        "course" : "31",
                     }
                 ]
             },
@@ -466,7 +466,7 @@ AP_SCORE_CONFIG = {
                 "fall" : [
                     {
                         "subject" : "COEN 12",
-                        "course" : "12"
+                        "course" : "12",
                         "title" :"Data Structures",
                         "hasLab" : True
                     }
@@ -504,7 +504,7 @@ AP_SCORE_CONFIG = {
                  "fall" : [
                     {
                         "subject" : "COEN 12",
-                        "course" : "12"
+                        "course" : "12",
                         "title" :"Data Structures",
                         "hasLab" : True
                     }
