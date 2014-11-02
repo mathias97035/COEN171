@@ -94,6 +94,105 @@ STARTING_SCHEDULES = {
 
 # None means wild card
 AP_SCORE_CONFIG = {
+    "calculus ab" : {
+        4 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                        "title" :"Calculus II",
+                        "hasLab" : False
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                        "title" :"Calculus III",
+                        "hasLab" : False
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "14"
+                        "title" :"Calculus IV",
+                        "hasLab" : False
+                    }
+                ]
+            }
+        },
+        5 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                        "title" :"Calculus II",
+                        "hasLab" : False
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                        "title" :"Calculus III",
+                        "hasLab" : False
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "14"
+                        "title" :"Calculus IV",
+                        "hasLab" : False
+                    }
+                ]
+            }
+        }
+    },
+
     "calculus bc" : {
         3 : {
             "remove" : {
@@ -121,18 +220,24 @@ AP_SCORE_CONFIG = {
                     {
                         "subject" : "MATH",
                         "course" : "12"
+                        "title" :"Calculus II",
+                        "hasLab" : False
                     }
                 ],
                 "winter" :[
                     {
                         "subject" : "MATH",
                         "course" : "13"
+                        "title" :"Calculus III",
+                        "hasLab" : False
                     }
                 ],
                 "spring" : [
                     {
                         "subject" : "MATH",
                         "course" : "14"
+                        "title" :"Calculus IV",
+                        "hasLab" : False
                     }
                 ]
             }
@@ -163,12 +268,16 @@ AP_SCORE_CONFIG = {
                     {
                         "subject" : "MATH",
                         "course" : "13"
+                        "title" :"Calculus III",
+                        "hasLab" : False
                     }
                 ],
                 "winter" :[
                     {
                         "subject" : "MATH",
                         "course" : "14"
+                        "title" :"Calculus IV",
+                        "hasLab" : False
                     }
                 ],
                 "spring" : [
@@ -198,19 +307,260 @@ AP_SCORE_CONFIG = {
                 ]
             },
             "add" : {
-                "fall" : [
+                 "fall" : [
                     {
                         "subject" : "MATH",
                         "course" : "13"
+                        "title" :"Calculus III",
+                        "hasLab" : False
                     }
                 ],
                 "winter" :[
                     {
                         "subject" : "MATH",
                         "course" : "14"
+                        "title" :"Calculus IV",
+                        "hasLab" : False
                     }
                 ],
                 "spring" : [
+                    None
+                ]
+            }
+        }
+    },
+
+    "Physics C: Mechanics" : {
+        4 : {
+            "remove" : {
+                "winter" :[
+                    {
+                        "subject" : "PHYS",
+                        "course" : "31"
+                    }
+                ]
+            },
+          "add" : {
+                "winter" :[
+                        None
+                ]
+            }  
+        },
+        5 : {
+            "remove" : {
+                "winter" :[
+                    {
+                        "subject" : "PHYS",
+                        "course" : "31"
+                    }
+                ]
+            },
+          "add" : {
+                "winter" :[
+                        None
+                ]
+            }
+        }
+    },
+
+ "Physics C: Electricity & Magnetism" : {
+        4 : {
+            "remove" : {
+                "spring" :[
+                    {
+                        "subject" : "PHYS",
+                        "course" : "33"
+                    }
+                ]
+            },
+          "add" : {
+                "spring" :[
+                        None
+                ]
+            }  
+        },
+        5 : {
+            "remove" : {
+                "spring" :[
+                    {
+                        "subject" : "PHYS",
+                        "course" : "33"
+                    }
+                ]
+            },
+          "add" : {
+                "spring" :[
+                        None
+                ]
+            }
+        }
+    },
+
+
+    "computer science a" : {
+        3 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "12"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "11",
+                        "title" :"Advance Programming",
+                        "hasLab" : True
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "12",
+                        "title" :"Data Structures",
+                        "hasLab" : True
+                    }
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        },
+        4 : {
+            "remove" : {
+                 "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "12"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN 12",
+                        "course" : "12"
+                        "title" :"Data Structures",
+                        "hasLab" : True
+                    }
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        },
+        5 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "12"
+                    }
+                ]
+            },
+            "add" : {
+                 "fall" : [
+                    {
+                        "subject" : "COEN 12",
+                        "course" : "12"
+                        "title" :"Data Structures",
+                        "hasLab" : True
+                    }
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        }
+    },
+
+    "chemistry" : {
+        3 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    None
+                ]
+            }
+        },
+        4 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    None
+                ]
+            }
+        },
+        5 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
                     None
                 ]
             }
