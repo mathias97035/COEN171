@@ -10,8 +10,8 @@ STARTING_SCHEDULES = {
                 "hasLab" : True
             },
             {
-                "subject" : "University Core",
-                "course" : None,
+                "subject" : "CTW",
+                "course" : "I",
                 "title" :"Critial Thinking and Writing I",
                 "hasLab" : False
             } ,
@@ -24,7 +24,7 @@ STARTING_SCHEDULES = {
             {
                 "subject" : "CHEM",
                 "course" : "11",
-                "title" : "Introduction to Programming",
+                "title" : "Chemistry I",
                 "hasLab" : True
             } ,
             {
@@ -42,8 +42,8 @@ STARTING_SCHEDULES = {
                 "hasLab" : False
             },
             {
-                "subject" : "University Core",
-                "course" : None,
+                "subject" : "CTW",
+                "course" : "II",
                 "title" :"Critial Thinking and Writing II",
                 "hasLab" : False
             } ,
@@ -87,6 +87,55 @@ STARTING_SCHEDULES = {
                 "hasLab" : False
             } 
 
+        ]
+    }
+}
+
+NEED_MATH_9 = {
+    "remove" : {
+        "fall" : [
+            {
+                "subject" : "MATH",
+                "course" : "11"
+            }
+        ],
+        "winter" :[
+            {
+                "subject" : "MATH",
+                "course" : "12"
+            }
+        ],
+        "spring" : [
+            {
+                "subject" : "MATH",
+                "course" : "13"
+            }
+        ]
+    },
+    "add" : {
+        "fall" : [
+            {
+                "subject" : "MATH",
+                "course" : "9",
+                "title" :"Precalculus",
+                "hasLab" : False
+            }
+        ],
+        "winter" :[
+            {
+                "subject" : "MATH",
+                "course" : "11",
+                "title" :"Calculus I",
+                "hasLab" : False
+            }
+        ],
+        "spring" : [
+            {
+                "subject" : "MATH",
+                "course" : "12",
+                "title" :"Calculus II",
+                "hasLab" : False
+            }
         ]
     }
 }
@@ -570,7 +619,7 @@ AP_SCORE_CONFIG = {
 
 # minimumScore and maximumScore @ -1 means N/A
 IB_SCORE_CONFIG = {
-"chemistry" : {
+    "chemistry" : {
         6 : {
             "remove" : {
                 "fall" : [
