@@ -570,7 +570,117 @@ AP_SCORE_CONFIG = {
 
 # minimumScore and maximumScore @ -1 means N/A
 IB_SCORE_CONFIG = {
+"chemistry" : {
+        6 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    None
+                ]
+            }
+        },
+        7 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    None
+                ]
+            }
+        }
+    },
 
+    "computer science" : {
+        6 : {
+            "remove" : {
+                 "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "12"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN 12",
+                        "course" : "12",
+                        "title" :"Data Structures",
+                        "hasLab" : True
+                    }
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        },
+        7 : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "12"
+                    }
+                ]
+            },
+            "add" : {
+                 "fall" : [
+                    {
+                        "subject" : "COEN 12",
+                        "course" : "12",
+                        "title" :"Data Structures",
+                        "hasLab" : True
+                    }
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        }
+    }
 }
 
 
