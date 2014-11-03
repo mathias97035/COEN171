@@ -33,7 +33,7 @@ def quarterWithMaxNones(noneIndicesInQuarter, ignoreQuarterList=[] ):
         if thisQuarterLen > maxQuarterLen :
             maxQuarterLen = thisQuarterLen
             maxQuarterNameList = [ quarter ]
-        elif thisQuarterLen == maxQuarterLen:
+        elif thisQuarterLen == maxQuarterLen and maxQuarterLen > 0:
             maxQuarterNameList.append(quarter)
     return maxQuarterNameList
 
@@ -66,13 +66,13 @@ try:
     requestData = {
         "Major" : "COEN",
         "APCredits" : { 
-            "Calculus BC" : 4 
+            #"Calculus BC" : 4 
         },
         "IBCredits" : { 
             #"chemistry" : 6 
         },
-        "NeedMath9" : False,
-        "PreviousCodingExperience" : True,
+        "NeedMath9" : True,
+        "PreviousCodingExperience" : False,
         "TransferCredits" : [ 
             { 
                 "subject" : "MATH", 
@@ -218,13 +218,70 @@ try:
     '''
 
     if requestData["NeedMath9"]:
-        if "11" not in fulfilledClasses["math"]:
-            for quarter in ScheduleConfig.NEED_MATH_9:
-                pass 
+        try:
+            if not ( "11" in fulfilledClasses["math"] or \
+               "12" in fulfilledClasses["math"] or \
+               "13" in fulfilledClasses["math"] or \
+               "14" in fulfilledClasses["math"] ): 
+                math9flag = True 
+            else:
+                math9flag = False
+        except:
+            math9flag = True
+
+        if math9flag:
+            for quarter in ScheduleConfig.NEED_MATH_9["remove"]:
+                for i, removeThisClass in enumerate( ScheduleConfig.NEED_MATH_9["remove"][quarter] ):
+
+
+                    '''
+                    If an AP class is fulfulled by an AP credit, but the class is not on the list 
+                        Then the class should be added to the fulfulled class list
+                        Our code does not currently guarantee an add to the list 
+                        Our code only adds to the list if the class is removed.
+                        *** We need to guarantee that the class will be added to the fulfilled class list.
+
+                    '''
+
+                    for j, classInSchedule in enumerate( schedule[quarter] ):
+
+                        try:
+                            subjectOfClassInSchedule = classInSchedule["subject"].lower().strip()
+                            courseOfClassInSchedule = classInSchedule["course"].lower().strip()
+                        except (AttributeError, TypeError) as e:
+                            continue # classInSchedule is of type 'NoneType', pass
+
+                        subjectOfClassToRemove = removeThisClass["subject"].lower().strip()
+                        courseOfClassToRemove = removeThisClass["course"].lower().strip()
+
+                        if subjectOfClassInSchedule == subjectOfClassToRemove and \
+                           courseOfClassInSchedule == courseOfClassToRemove:
+
+                            #update the set of fulfilled classes
+                            try:
+                                fulfilledClasses[ subjectOfClassInSchedule ].update([ courseOfClassInSchedule ])
+                            except KeyError:
+                                fulfilledClasses[ subjectOfClassInSchedule ] = set()
+                                fulfilledClasses[ subjectOfClassInSchedule ].update([ courseOfClassInSchedule ])
+                            
+                            #add the replacement course to the schedule
+                            schedule[quarter][j] = ScheduleConfig.NEED_MATH_9["add"][quarter][i] 
+
+                            #remove added class from set of fulfilled classes
+                            try:
+                                subjectOfAddedClass = schedule[quarter][i]["subject"].lower().strip()
+                                courseOfAddedClass = schedule[quarter][i]["course"].lower().strip()
+                                try:
+                                    fulfilledClasses[ subjectOfAddedClass ].remove( courseOfAddedClass )
+                                except Exception as e:
+                                    pass
+                            except TypeError:
+                                pass # class is None
+                            break
                 ''' 
                 ADD CODE HERE
                 '''
-        pass
+        
 
     # Add Classes to None
     noneIndicesInQuarter = {}
@@ -234,8 +291,8 @@ try:
 
     #print noneIndicesInQuarter
     #print fulfilledClasses
-    print noneIndicesInQuarter
-    print quarterWithMaxNones( noneIndicesInQuarter, ["spring"] )
+    #print noneIndicesInQuarter
+    #print quarterWithMaxNones( noneIndicesInQuarter, ["spring"] )
 
     # C&I code
 
@@ -267,11 +324,6 @@ try:
         except KeyError:
             classesSatisfiedByThisQuarter["spring"][ subjectOfClass ] = set()
             classesSatisfiedByThisQuarter["spring"][ subjectOfClass ].update([ courseOfClass ])
-
-
-    print "***"
-    print classesSatisfiedByThisQuarter
-    print "***"
 
 
     if len(noneIndicesInQuarter["winter"]):
@@ -311,7 +363,7 @@ try:
             pass
 
     _ignoreQuarterList = ["fall"]
-    for quarter in ["winter", "spring"]:
+    for quarter in ["fall", "winter", "spring"]:
         try:
             if "13" in classesSatisfiedByThisQuarter[quarter]["math"]:
                 freeQuarterList = quarterWithMaxNones( noneIndicesInQuarter, ignoreQuarterList=_ignoreQuarterList )
@@ -351,7 +403,7 @@ try:
             pass
 
     _ignoreQuarterList = ["fall", "winter"]
-    for quarter in ["spring"]:
+    for quarter in ["fall", "winter", "spring"]:
         try:
             if "12" in classesSatisfiedByThisQuarter[quarter]["coen"]:
                 freeQuarterList = quarterWithMaxNones( noneIndicesInQuarter, ignoreQuarterList=_ignoreQuarterList )
@@ -400,17 +452,17 @@ try:
     #Coen20
     #amth 108 106
 
-    for quarter in schedule:
-        print quarter
-        for thisClass in schedule[quarter]:
-            print "    ",thisClass
+    #for quarter in schedule:
+    #    print quarter
+    #    for thisClass in schedule[quarter]:
+    #        print "    ",thisClass
 
 
     # output response json  
-    #print json.dumps({ 
-    #    "error" : False , 
-    #    "schedule" : schedule 
-    #}, indent=4)
+    print json.dumps({ 
+        "error" : False , 
+        "schedule" : schedule 
+    }, indent=4)
     
 
 # Error Handling Except Block

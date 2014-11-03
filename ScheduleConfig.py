@@ -412,7 +412,7 @@ AP_SCORE_CONFIG = {
         }
     },
 
- "physics c: electricity & magnetism" : {
+ "physics c: electricity and magnetism" : {
         4 : {
             "remove" : {
                 "spring" :[

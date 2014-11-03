@@ -1,0 +1,140 @@
+REQUEST:
+
+    NOTE: For transfer credits, if you select Math 13, can you also add the previous ones?
+            So if math 13 selected, include math11, math12, math13 in TransferCredits
+
+    {
+        "Major" : "COEN",
+        "APCredits" : { 
+            "Calculus BC" : 4 
+        },
+        "IBCredits" : { 
+            "chemistry" : 6 
+        },
+        "NeedMath9" : True,
+        "PreviousCodingExperience" : False,
+        "TransferCredits" : [ 
+            { 
+                "subject" : "MATH", 
+                "course" : "11" 
+            }, 
+            { 
+                "subject" : "MATH", 
+                "course" : "12" 
+            }, 
+            { 
+                "subject" : "MATH", 
+                "course" : "13" 
+            }, 
+            { 
+                "subject" : "MATH", 
+                "course" : "14" 
+            } 
+        ]
+     }
+
+
+
+
+RESPONSE: 
+
+    JAVASCRIPT:
+
+        function callbackAJAXFunction(response){
+            if(response["error"]){
+                alert(response["error"])
+            } else {
+                /* display response["schedule"] */
+            }
+        }
+
+
+    {
+        "schedule": {
+            "spring": [
+                {
+                    "course": "12", 
+                    "title": "Data Structures", 
+                    "hasLab": true, 
+                    "subject": "COEN"
+                }, 
+                {
+                    "course": "19", 
+                    "title": "Discrete Math", 
+                    "hasLab": false, 
+                    "subject": "MATH"
+                }, 
+                {
+                    "course": "32", 
+                    "title": "Physics II", 
+                    "hasLab": true, 
+                    "subject": "PHYS"
+                }, 
+                {
+                    "course": "12", 
+                    "title": "Calculus II", 
+                    "hasLab": false, 
+                    "subject": "MATH"
+                }
+            ], 
+            "winter": [
+                {
+                    "course": "11", 
+                    "title": "Advance Programming", 
+                    "hasLab": false, 
+                    "subject": "COEN"
+                }, 
+                {
+                    "course": "II", 
+                    "title": "Critial Thinking and Writing II", 
+                    "hasLab": false, 
+                    "subject": "CTW"
+                }, 
+                {
+                    "course": "11", 
+                    "title": "Calculus I", 
+                    "hasLab": false, 
+                    "subject": "MATH"
+                }, 
+                {
+                    "course": "31", 
+                    "title": "Physics I", 
+                    "hasLab": true, 
+                    "subject": "PHYS"
+                }
+            ], 
+            "fall": [
+                {
+                    "course": "10", 
+                    "title": "Introduction To Programming", 
+                    "hasLab": true, 
+                    "subject": "COEN"
+                }, 
+                {
+                    "course": "I", 
+                    "title": "Critial Thinking and Writing I", 
+                    "hasLab": false, 
+                    "subject": "CTW"
+                }, 
+                {
+                    "course": "9", 
+                    "title": "Precalculus", 
+                    "hasLab": false, 
+                    "subject": "MATH"
+                }, 
+                {
+                    "course": "11", 
+                    "title": "Chemistry I", 
+                    "hasLab": true, 
+                    "subject": "CHEM"
+                }, 
+                {
+                    "course": "1", 
+                    "title": "Introduction to Engineering", 
+                    "hasLab": false, 
+                    "subject": "ENGR"
+                }
+            ]
+        }, 
+        "error": false
+    }
