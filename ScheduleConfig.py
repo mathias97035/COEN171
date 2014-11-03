@@ -379,7 +379,7 @@ AP_SCORE_CONFIG = {
         }
     },
 
-    "Physics C: Mechanics" : {
+    "physics c: mechanics" : {
         4 : {
             "remove" : {
                 "winter" :[
@@ -412,7 +412,7 @@ AP_SCORE_CONFIG = {
         }
     },
 
- "Physics C: Electricity & Magnetism" : {
+ "physics c: electricity & magnetism" : {
         4 : {
             "remove" : {
                 "spring" :[
