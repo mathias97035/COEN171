@@ -732,6 +732,173 @@ IB_SCORE_CONFIG = {
     }
 }
 
+TRANSFER_CREDIT_CONFIG = {
+    "math" : {
+        "11" : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "12",
+                        "title" :"Calculus III",
+                        "hasLab" : False
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "13",
+                        "title" :"Calculus IV",
+                        "hasLab" : False
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "14",
+                        "title" :"Calculus IV",
+                        "hasLab" : False
+                    }
+                ]
+            }
+        },
+        "12" : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13",
+                        "title" :"Calculus III",
+                        "hasLab" : False
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "14",
+                        "title" :"Calculus IV",
+                        "hasLab" : False
+                    }
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        },
+        "13" : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "14",
+                        "title" :"Calculus III",
+                        "hasLab" : False
+                    }
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        },
+        "14" : {
+            "remove" : {
+                "fall" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "11"
+                    }
+                ],
+                "winter" :[
+                    {
+                        "subject" : "MATH",
+                        "course" : "12"
+                    }
+                ],
+                "spring" : [
+                    {
+                        "subject" : "MATH",
+                        "course" : "13"
+                    }
+                ]
+            },
+            "add" : {
+                "fall" : [
+                    None
+                ],
+                "winter" :[
+                    None
+                ],
+                "spring" : [
+                    None
+                ]
+            }
+        }
+    }
+}
+
 
 REQUIRED_CLASSES = {
     "COEN" : [
