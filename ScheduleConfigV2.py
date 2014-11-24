@@ -1,106 +1,324 @@
-import json
-coursesSatisfied = ["math 9", "math 11", "chem 11", "phys 31", "phys 32", "coen 10", "coen 11"]
-
-mutable_course_lines = [ 
-    ["math 9", "math 11", "math 12", "math 13", "math 14"]
-]
-
-immutable_course_lines = [
-    ["coen 10", "coen 11", "coen 12"],
-    ["ctw 1", "ctw 2", "coen 19"],
-    ["chem 11", "phys 31", "phys 32", "phys 33", "elen 50"]
-]
-
 '''
-def coursesAreSame( course1, course2 ):
-    return course1["subject"].lower().strip() == \
-           course2["subject"].lower().strip() and \
-           course1["course"].lower().strip() == \
-           course2["course"].lower().strip()
+first three indexes of each course line represent quarters
+
+line[0] -> fall quarter
+line[1] -> winter quarter
+line[2] -> spring quarter
 '''
 
-def indexOfCourseFromCourseLine( course, courseLine ):
-    removeThisIndex = None
-    for j, course in enumerate(courseLine):
-        if course == removeThisCourse:
-            removeThisIndex = j
-            break
-    return removeThisIndex
+STARTING_SCHEDULE_LINES = {
+    "coen" : {
+        "mutable" : [
+            [
+                {
+                    "subject" : "MATH",
+                    "course" : "9",
+                    "title" :"Pre-Calculus",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "MATH",
+                    "course" : "11",
+                    "title" :"Calculus I",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "MATH",
+                    "course" : "12",
+                    "title" :"Calculus II",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "MATH",
+                    "course" : "13",
+                    "title" :"Calculus III",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "MATH",
+                    "course" : "14",
+                    "title" :"Calculus IV",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "AMTH",
+                    "course" : "106",
+                    "title" :"Differential Equations",
+                    "hasLab" : False
+                },
+                {
+                    "subject" : "AMTH",
+                    "course" : "108",
+                    "title" :"Probability and Statistics",
+                    "hasLab" : False
+                },        
+                {
+                    "subject" : "MATH",
+                    "course" : "53",
+                    "title" :"Linear Algebra",
+                    "hasLab" : False
+                }
+            ] 
+        ],
+        "immutable" : [
+            [            
+                {
+                    "subject" : "COEN",
+                    "course" : "10",
+                    "title" : "Introduction To Programming",
+                    "hasLab" : True
+                },                
+                {
+                    "subject" : "COEN",
+                    "course" : "11",
+                    "title" : "Advanced Programming",
+                    "hasLab" : True
+                },                 
+                {
+                    "subject" : "COEN",
+                    "course" : "12",
+                    "title" : "Data Structures",
+                    "hasLab" : True
+                }
+            ],
+            [            
+                {
+                    "subject" : "CTW",
+                    "course" : "I",
+                    "title" :"Critical Thinking and Writing I",
+                    "hasLab" : False
+                },                
+                {
+                    "subject" : "CTW",
+                    "course" : "II",
+                    "title" :"Critical Thinking and Writing II",
+                    "hasLab" : False
+                },                 
+                {
+                    "subject" : "COEN",
+                    "course" : "19",
+                    "title" : "Discrete Mathmatics",
+                    "hasLab" : False
+                }
+            ],
+            [
+                {
+                    "subject" : "CHEM",
+                    "course" : "11",
+                    "title" : "Chemistry I",
+                    "hasLab" : True
+                }, 
+                {
+                    "subject" : "PHYS",
+                    "course" : "31",
+                    "title" : "Physics I",
+                    "hasLab" : True
+                }, 
+                {
+                    "subject" : "PHYS",
+                    "course" : "32",
+                    "title" :"Physics II",
+                    "hasLab" : True
+                }, 
+                {
+                    "subject" : "PHYS",
+                    "course" : "33",
+                    "title" : "Physics III",
+                    "hasLab" : True
+                }, 
+                {
+                    "subject" : "ELEN",
+                    "course" : "50",
+                    "title" : "Electric Circuits I",
+                    "hasLab" : True
+                } 
+            ]
 
-#remove from mutable class lines
-for removeThisCourse in coursesSatisfied:
-    for i, courseLine in enumerate( mutable_course_lines ):
-        removeThisIndex = indexOfCourseFromCourseLine( removeThisCourse, courseLine )
-        if removeThisIndex is not None:
-            mutable_course_lines[i].pop(removeThisIndex)
-            break
+        ]
+    }
+}
 
-#remove from immutable class lines
-for removeThisCourse in coursesSatisfied:
-    for i, courseLine in enumerate( immutable_course_lines ):
-        nullifyThisIndex = indexOfCourseFromCourseLine( removeThisCourse, courseLine )
-        if nullifyThisIndex is not None:
-            immutable_course_lines[i][nullifyThisIndex] = None
-            break
+# None means wild card
+AP_SCORE_CONFIG = {
+    "calculus ab" : {
+        4 : [
+                {
+                    "subject" : "MATH",
+                    "course" : "11"
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "MATH",
+                    "course" : "11"
+                }
+        ]
+    },
 
-schedule = {"fall":list(),"winter":list(),"spring":list()}
-for courseLineList in [immutable_course_lines, mutable_course_lines]:
-    for courseLine in courseLineList:
-        for i, quarter in enumerate(["fall", "winter", "spring"]):
-            schedule[quarter].append(courseLine[i])
+    "calculus bc" : {
+        3 : [
+                {
+                    "subject" : "MATH",
+                    "course" : "11"
+                }
+        ],
+        4 : [
+                {
+                    "subject" : "MATH",
+                    "course" : "11"
+                }
+                ,
+                {
+                    "subject" : "MATH",
+                    "course" : "12"
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "MATH",
+                    "course" : "11"
+                }
+                ,
+                {
+                    "subject" : "MATH",
+                    "course" : "12"
+                }
+        ]
+        
+    },
 
-#adding priority courses: C&I 
-try: 
-    winterIndex = schedule["winter"].index(None)
-    try:
-        #try winter and spring first -> it might save room for modulo3 immutable classes
-        springIndex = schedule["spring"].index(None)
-        schedule["winter"][winterIndex] = "C&I 1"
-        schedule["spring"][springIndex] = "C&I 2"
-    except ValueError:
-        fallIndex = schedule["fall"].index(None)
-        schedule["fall"][fallIndex] = "C&I 1"
-        schedule["winter"][winterIndex] = "C&I 2"
-except ValueError:
-    pass
+    "physics c: mechanics" : {
+        4 : [
+                {
+                    "subject" : "PHYS",
+                    "course" : "31",
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "PHYS",
+                    "course" : "31"
+                }
+        ]
+    },
 
-#adding the modulo 3 courses 
-for courseLine in immutable_course_lines:
-    length = len(courseLine)
-    numStubs = int(length/3)
-    remainder = length % 3
-    if not numStubs:
-        continue
-    for i in xrange(numStubs):
-        #if all three in this triplet stub are fulfilled for this immutable course list
-        if tuple(courseLine[i*3:(i+1)*3]).count(None) == 3:
-            #FOR EACH COURSE IN THE NEXT STUB, ADD IT IN
-            rangeSize = remainder if i == numStubs - 1 else 3
-            for j in xrange(rangeSize):
-                quarter = ("fall", "winter","spring")[j]
-                for k in range( len(schedule[quarter])-1,-1,-1): #iterate backwards, fills in better
-                    if schedule[quarter][k] is None:
-                        schedule[quarter][k] = courseLine[((i+1)*3)+j]
-                        break
+ "physics c: electricity and magnetism" : {
+        4 : [
+                {
+                    "subject" : "PHYS",
+                    "course" : "33"
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "PHYS",
+                    "course" : "33"
+                }
+        ]
+    },
 
-for quarter in ["fall", "winter", "spring"]:
-    for i, course in enumerate(schedule[quarter]):
-        if course is None:
-            schedule[quarter][i] = "core"
 
-print json.dumps(schedule, indent=4)
+    "computer science a" : {
+        3 : [
+                {
+                    "subject" : "COEN",
+                    "course" : "10"
+                }
+        ],
+        4 : [
+                {
+                    "subject" : "COEN",
+                    "course" : "10"
+                },
+                {
+                    "subject" : "COEN",
+                    "course" : "11"
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "COEN",
+                    "course" : "10"
+                },
+                {
+                    "subject" : "COEN",
+                    "course" : "11"
+                }
+        ]
+  
+    },
+
+    "chemistry" : {
+        3 : [
+                {
+                    "subject" : "CHEM",
+                    "course" : "11"
+                }
+        ],
+        4 : [
+                {
+                    "subject" : "CHEM",
+                    "course" : "11"
+                }
+        ],
+        5 : [
+                {
+                    "subject" : "CHEM",
+                    "course" : "11"
+                }
+        ]
+    }
+}
+
+IB_SCORE_CONFIG = {
+    "chemistry" : {
+        6 : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+        ],
+        7 : [
+                    {
+                        "subject" : "CHEM",
+                        "course" : "11"
+                    }
+        ]
+    },
+
+    "computer science" : {
+        6 : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ,
+                
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+        ],
+        7 : [
+                    {
+                        "subject" : "COEN",
+                        "course" : "10"
+                    }
+                ,
+                
+                    {
+                        "subject" : "COEN",
+                        "course" : "11"
+                    }
+        ]
+    }
+}
 
 
 '''
 if (None, None, None) == tuple(immutable_course_lines[-1][:3]):
     print "holyshit"
 '''
-
-
-#add cni, ctw
-#add any possible classes to mutable class line
-
-#print mutable_class_lines
 
 
 
